@@ -11,39 +11,50 @@ function bodyParsed() {
 
   let pageContents =
 
-    `<header>
+    `
+    <header>
       <h1>${contents.name}</h1>
     </header>
 
-    <div class="cardBody">
+    <div class="container2 zigzag">
 
-      <div class="cardBodySections">
-        <div class="basics">
 
-          <h2>The Basics</h2>
 
-          <ul>
-            <li><label>Name:</label> ${contents.name}</li>
-            <li><label>GitHub URL:</label> <a href=${contents.html_url}>${contents.login}</a></li>
-            <li><label>Email:</label> ${contents.email}</li>
-            <li><label>Company:</label> ${contents.company}</li>
-            <li><label>Website:</label> <a href=${contents.blog}>${contents.blog}</a></li>
-          </ul>
+        <div class="cardBody">
 
+          <div class="cardBodySections">
+            <div class="basics">
+
+              <h2>The Basics</h2>
+
+              <ul>
+                <li class="personInfo">Name: <div class="personInfoText">${contents.name}</div></li>
+                <li class="personInfo">GitHub URL:<div class="personInfoText"> <a href=${contents.html_url}>${contents.login}</a></div></li>
+                <li class="personInfo">Email:<div class="personInfoText"> ${contents.email}</div></li>
+                <li class="personInfo">Company:<div class="personInfoText"> ${contents.company}</div></li>
+                <li class="personInfo">Website:<div class="personInfoText"> <a href=${contents.blog}>${contents.blog}</a></div></li>
+              </ul>
+
+            </div>
+
+
+            <div class="story">
+              <h2>The Story</h2>
+              <p>${contents.bio}</p>
+            </div>
+
+
+            <div class="photo">
+              <img src=${contents.avatar_url} alt="A photo of ${contents.name}.">
+            </div>
+          </div>
         </div>
 
 
-        <div id="story">
-          <h2>The Story</h2>
-          <p>${contents.bio}</p>
-        </div>
 
+    </div>
 
-        <div id="photo">
-          <img src=${contents.avatar_url} alt="A photo of ${contents.name}.">
-        </div>
-      </div>
-    </div>`
+    `
 
   body.innerHTML = pageContents;
 }
